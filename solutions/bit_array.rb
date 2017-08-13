@@ -1,9 +1,9 @@
-def bit_array(s)
+def unique_with_bit_array(s)
   vector = 0
-  l = s.size
 
-  for i in 0...l
-    code = s[i].ord
+  s.each_char do |char|
+    code = char.ord
+
     if (vector & (1 << code)) > 0
       return false
     end

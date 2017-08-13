@@ -1,11 +1,10 @@
-def hash(s)
+def unique_with_hash(s)
   characters = {}
-  l = s.size
 
-  for i in 0...l
-    return false if characters[s[i]]
+  s.each_char do |char|
+    return false if characters[char]
 
-    characters[s[i]] = true
+    characters[char] = true
   end
 
   return true
