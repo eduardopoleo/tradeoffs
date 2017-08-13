@@ -1,4 +1,4 @@
-def brute_force(s)
+def unique_brute_force(s)
   l = s.size
 
   for i in 0...l

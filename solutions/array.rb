@@ -1,11 +1,11 @@
-def array(s)
+def unique_with_array(s)
   l = s.size
-  return false if l > 128
 
-  char_set = Array.new(128)
+  char_set = Array.new(l)
 
-  for i in 0...l
-    code = s[i].ord
+  s.each_char do |char|
+    code = char.ord
+
     return false if char_set[code]
 
     char_set[code] = true
