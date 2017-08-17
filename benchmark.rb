@@ -6,7 +6,6 @@ require_relative './solutions/array'
 require_relative './solutions/bit_array'
 require_relative './solutions/web_developer'
 
-sample_sizes_brute_force = [10, 100, 500, 1000, 2000]
 sample_sizes = [10, 100, 500, 1000, 2000, 10_000, 20_000, 40_000]
 
 def build_string(size)
@@ -18,14 +17,8 @@ end
 Benchmark.bm do |x|
   sample_sizes.each do |sample_size|
     s = build_string(sample_size)
+
     x.report("Brute Force: with #{sample_size}") { 1_000.times { |i| unique_brute_force(s) } }
-  end
-end
-
-Benchmark.bm do |x|
-  sample_sizes.each do |sample_size|
-    s = build_string(sample_size)
-
     x.report("Array: with #{sample_size}") { 1_000.times { unique_with_array(s) } }
     x.report("Hash: with #{sample_size}") { 1_000.times { unique_with_hash(s) } }
     x.report("Bit Array: with #{sample_size}") { 1_000.times { unique_with_bit_array(s) } }
